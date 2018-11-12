@@ -1,0 +1,280 @@
+.Card_size_s {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+.Card_size_m {
+    grid-column: span 3;
+    grid-row: span 2;
+}
+.Card_size_l {
+    grid-column: span 4;
+    grid-row: span 3;
+}
+
+.Card {
+    transition: 0.5s ease;
+    background-color: #fafafa;
+    position: relative;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(min-content, max-content) minmax(min-content, 1fr);
+    grid-template-areas: "info" "data";
+}
+.Card:hover {
+    background-color: #f3f3f3;
+}
+
+.Card:hover .Card-CloseImg, .Card:hover .Card-OpenImg {
+    display: block;
+}
+.Card-CloseImg {
+    z-index: 5;
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.Card-CloseImg > img {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 15px;
+    top: 15px;
+}
+.Card-OpenImg {
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.Card-OpenImg > img {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 15px;
+    bottom: 15px;
+}
+
+.Card-Data, .Card-TopInfo {
+    padding: 10px 20px 20px 20px;
+}
+
+
+.Card-Logo {
+    grid-area: l;
+    min-width: 30px;
+    width: 3.8vw;
+    min-height: 30px;
+    height: 3.8vw;
+    vertical-align: middle;
+}
+.Card-Title {
+    grid-area: t;
+    position: relative;
+    font-size: 24px;
+    margin: 0 15px 0 18px;
+    height: 3.8vw;
+}
+.Card-Title > span {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+.Card-Time, .Card-Source {
+    font-size: 18px;
+    padding: 8px 0;
+    margin: 0;
+}
+.Card-Desription {
+    font-size: 23px;
+    padding: 12px 0;
+    margin: 0;
+}
+.Card-Img {
+    margin-top: 15px;
+    width: 100%;
+    border-radius: 10px;
+}
+.Card-TopInfo {
+    grid-area: info;
+    display: grid;
+}
+.Card-Data {
+    align-self: end;
+    grid-area: data;
+}
+.Card-Source {
+    grid-area: s;
+}
+.Card-Time {
+    grid-area: time;
+}
+.Card_size_m .Card-Time, .Card_size_l .Card-Time {
+    justify-self: end;
+}
+.Card_size_l .Card-TopInfo {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas: "l t t t t t t t t t t t" "s s s s s s s s time time time time";
+    grid-template-rows: repeat(2, minmax(min-content, max-content));
+    grid-auto-rows: 1fr;
+}
+.Card_size_s .Card-TopInfo {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: minmax(0px, 1fr);
+    grid-template-areas: "l t t t t t" "s s s s s s" " time time time time time time" "d d d d d d";
+}
+.Card_size_m .Card-TopInfo {
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(2, minmax(min-content, max-content));
+    grid-template-areas: "l t t t t t t t t t" "s s s s s s time time time time";
+}
+
+.Card_size_m {
+    padding: 0;
+}
+.Card_size_m .Card-Desription {
+    font-size: 20px;
+}
+.Card_size_m .Card-Temp, .Card_size_m  .Card-Wetness {
+    margin-top: 20px;
+    font-size: 18px;
+    width: 49%;
+    display: inline-block;
+}
+.Card_critical .Card-TopInfo:after, .Card_critical .Card-Data {
+    transition: 0.5s ease;
+}
+.Card_critical:hover .Card-TopInfo:after, .Card_critical:hover .Card-Data {
+    background-color: #f3f3f3;
+}
+.Card_critical .Card-Data {
+    border-radius: 20px;
+    background-color: #fafafa;
+}
+.Card_critical .Card-TopInfo {
+    color: #ffffff;
+    position: relative;
+    background-color: #db5341;
+    border-radius: 20px 20px 0 0;
+}
+.Card_critical .Card-TopInfo:after {
+    content: "";
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    bottom: 0;
+    border-radius: 20px 20px 0 0;
+    background-color: #fafafa;
+}
+
+.Card-ButtonBlock {
+    margin-top: 30px;
+}
+.Card-ButtonBlock .Card-Button {
+    margin-right: 18px;
+    background-color: #e5e5e5;
+    width: 132px;
+    height: 54px;
+    border-radius: 8px;
+    border: 0px;
+    padding: 0;
+    font-size: 20px;
+    color: #000000;
+    font-weight: bold;
+    transition: 0.5s ease;
+}
+.Card-ButtonBlock .Card-Button:hover {
+    background-color: #ffd93e;
+}
+.Card-ButtonBlock .Card-Button:focus {
+    outline: none;
+}
+
+.Card-Music {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: 30px 30px 52px;
+  grid-template-areas: "i  n n n n n n n n" "i t t t t t t t time" "c c c v v v v v volperc";
+}
+.Card-Music .Card-Albumcover {
+  grid-area: i;
+  max-width: 52px;
+  height: 52px;
+  float: left;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+.Card-Music .Card-Artist {
+  grid-area: n;
+  font-size: 20px;
+}
+.Card-Music .Card-TrackInput {
+  grid-area: t;
+}
+.Card-Music .Card-TrackTime {
+  grid-area: time;
+  font-size: 14px;
+  font-family: Helvetica, serif;
+  color: #000000;
+  opacity: 0.3;
+  align-self: center;
+  text-align: right;
+}
+.Card-Music .Card-Controls {
+  grid-area: c;
+}
+.Card-Music .Card-Controls .next, .Card-Music .Card-Controls .prev {
+  cursor: pointer;
+}
+.Card-Music .Card-Controls > .next {
+  margin-left: 20px;
+}
+.Card-Music .Card-Controls > .next img {
+  transform: rotate(180deg);
+}
+.Card-Music .Card-Volume {
+  grid-area: v;
+  align-self: center;
+}
+.Card-Music .Card-VolumePerc {
+  grid-area: volperc;
+  align-self: center;
+  font-size: 14px;
+  font-family: Helvetica, serif;
+  color: #000000;
+  opacity: 0.3;
+  text-align: right;
+}
+
+@media (max-width: 1100px) {
+    .Card .Card-Title {
+      font-size: 20px;
+    }
+    .Card .Card-Time, .Card .Card-Source {
+      font-size: 15px;
+    }
+    .Card .Card-Desription {
+      font-size: 20px;
+    }
+  
+    .Card_size_m .Card-Desription {
+      font-size: 18px;
+    }
+    .Card_size_m .Card-Temp, .Card_size_m .Card-Wetness {
+      display: block;
+      width: 100%;
+    }
+    .Card_size_m .Card-Wetness {
+      margin-top: 5px;
+    }
+  
+    .Card-Music {
+      grid-template-rows: 30px 30px 30px 52px 52px;
+      grid-template-areas: "i n n n n n n n n" "i _ _ _ _ _ _ _ _" "t t t t t t t t time" "c c c c c c c c c" "v v v v v v v v volperc";
+    }
+    .Card-Music .Card-Artist {
+      font-size: 18px;
+    }
+  }
+  

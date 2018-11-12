@@ -1,0 +1,18 @@
+.Navigation {
+    margin: 0;
+    display: inline-block;
+}
+.Navigation-Item {
+    display: inline-block;
+    opacity: 0.6;
+}
+.Navigation-Item:hover, .Navigation-Item_active {
+    opacity: 1;
+}
+.Navigation-Item a {
+    padding: 0 12px;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    transition: 0.5s ease;
+}
